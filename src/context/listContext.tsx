@@ -1,5 +1,9 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
 
 export const ListContext = createContext(null);
 
-export default ListContext;
+const ListProvider: any = (props: any) => {
+  return <ListContext.Provider value={}>{props.children}</ListContext.Provider>;
+};
+
+export default ListProvider;
