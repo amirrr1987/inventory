@@ -6,6 +6,7 @@ const Button = (props: any) => {
           props.color
         }-500 ${props.color ? "text-white" : null}
                   ${props.circle ? "rounded-full" : "rounded"}
+                  ${props.className}
                   `}
         onClick={props.onClick}
       >
@@ -16,7 +17,7 @@ const Button = (props: any) => {
   if (props.type === "text") {
     return (
       <button
-        className={`w-24 h-8 bg-${props.color}-500`}
+        className={`w-24 h-8 bg-${props.color}-500 ${props.className}`}
         onClick={props.onClick}
       >
         {props.children}
@@ -24,7 +25,10 @@ const Button = (props: any) => {
     );
   } else {
     return (
-      <button className={`w-24 h-8 bg-blue-500 text-blue-50 rounded`} onClick={props.onClick}>
+      <button
+        className={`w-24 h-8 bg-blue-500 text-blue-50 rounded`}
+        onClick={props.onClick}
+      >
         {props.children}
       </button>
     );

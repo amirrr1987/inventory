@@ -20,8 +20,8 @@ const TheNavbar = () => {
         <div className="flex justify-between">
           <ul className="flex gap-x-4">
             <NavItem to="/">home</NavItem>
-            <NavItem to="/about">about</NavItem>
-            <NavItem to="/gallrey">gallrey</NavItem>
+            <NavItem to="/list">list</NavItem>
+            <NavItem to="/add">add</NavItem>
             <NavItem to="/contact">contact</NavItem>
           </ul>
           <div className="flex items-center gap-x-4">

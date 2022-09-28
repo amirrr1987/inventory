@@ -1,24 +1,21 @@
-import { Fragment, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import { BrowserRouter,Outlet, Route, Routes } from "react-router-dom";
-import TheAdmin from './views/TheAdmin';
-import TheHome from './pages/TheHome';
-import TheAbout from "./pages/TheAbout";
-
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import TheAdmin from "./views/TheAdmin";
+import TheHome from "./pages/TheHome";
+import TheList from "./pages/TheList";
+import TheAdd from "./pages/TheAdd";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<TheAdmin />}>
           <Route path="/" element={<TheHome />} />
-          <Route path="/about" element={<TheAbout />} />
+          <Route path="/list" element={<TheList />} />
+          <Route path="/add" element={<TheAdd />} />
         </Route>
       </Routes>
     </BrowserRouter>
   );
 }
 
-export default App
+export default App;
