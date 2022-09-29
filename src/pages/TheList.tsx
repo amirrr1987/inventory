@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
 import Cards from "../components/Cards";
 import Container from "../components/container";
-import ListContext from '../context/listContext'
+import ListContext from '../context/ListContext'
 const TheList = () => {
   const [list, setList] = useState([
     {

@@ -3,7 +3,7 @@ import TheAdmin from "./views/TheAdmin";
 import TheHome from "./pages/TheHome";
 import TheList from "./pages/TheList";
 import TheAdd from "./pages/TheAdd";
-import ListContext from "./context/listContext";
+import ListContext from "./context/ListContext";
 
 function App() {
   return (
