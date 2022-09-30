@@ -1,7 +1,7 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import Cards from "../components/Cards";
 import Container from "../components/container";
-import ListContext from '../context/ListContext'
+import ListProvider, { ListContext } from "../context/ListContext";
 const TheList = () => {
   const [list, setList] = useState([
     {
@@ -61,6 +61,13 @@ const TheList = () => {
   ]);
   const ListContext = createContext(list);
 
+  const a = useContext(ListContext);
+  
+
+  console.log("a", a);
+  
+
+
   const deleteHandler = (event: any, id: any) => {
     let useList = list;
     let index = useList.findIndex((item) => {
@@ -71,15 +78,17 @@ const TheList = () => {
   };
   return (
     <main>
-      <section className="p-12">
-        <Container>
-          <div></div>
-          <div className="grid grid-cols-4 gap-8">
-            <Cards list={list} deleteHandler={deleteHandler} />
-          </div>
-        </Container>
-      </section>
-    </main>
+        <ListProvider>
+        <section className="p-12">
+          <Container>
+            <div></div>
+            <div className="grid grid-cols-4 gap-8">
+              <Cards list={list} deleteHandler={deleteHandler} />
+            </div>
+          </Container>
+        </section>
+    </ListProvider>
+      </main>
   );
 };
 export default TheList;
