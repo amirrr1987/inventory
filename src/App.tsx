@@ -1,13 +1,14 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import TheAdmin from "./views/TheAdmin";
 import TheHome from "./pages/TheHome";
 import TheList from "./pages/TheList";
 import TheAdd from "./pages/TheAdd";
-import ListContext from "./context/ListContext";
+import { ContextProvider } from "./context/ListContext";
 
 function App() {
   return (
-      <BrowserRouter>
+    <ContextProvider>
+      <Router>
         <Routes>
           <Route path="/" element={<TheAdmin />}>
             <Route path="/" element={<TheHome />} />
@@ -15,7 +16,8 @@ function App() {
             <Route path="/add" element={<TheAdd />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </Router>
+    </ContextProvider>
   );
 }
 

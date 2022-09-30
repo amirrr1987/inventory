@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "../components/Button";
 import Container from "../components/container";
 
+import ListContext from "../context/ListContext";
 const TheAdd = () => {
+  const { list, setList } = useContext(ListContext);
   const addToListHandler = () => {
     console.log("addToListHandler");
     let temp = {
@@ -13,6 +15,7 @@ const TheAdd = () => {
       color,
     };
     console.log(temp);
+    setList([...list, temp]);
   };
 
   const [img, setImg] = useState("");
@@ -35,7 +38,7 @@ const TheAdd = () => {
     setLink(event.target.value);
   };
 
-  const [color, setColor] = useState('');
+  const [color, setColor] = useState("");
   const colorHandler = (event: any) => {
     setColor(event.target.value);
   };
@@ -97,15 +100,8 @@ const TheAdd = () => {
                 />
               </div>
               <div className="mb-12 flex items-center gap-x-4">
-                <label htmlFor="">
-                  color:
-                </label>
-                <input
-                  value={color}
-                  onInput={colorHandler}
-                  type="color"
-                  
-                />
+                <label htmlFor="">color:</label>
+                <input value={color} onInput={colorHandler} type="color" />
               </div>
               <div>
                 <Button onClick={addToListHandler}>Add</Button>

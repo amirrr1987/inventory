@@ -1,8 +1,8 @@
-import { createContext, useState } from "react";
+import { useState, createContext } from "react";
 
-export const ListContext = createContext<any[] | null>(null);
+const Context = createContext<any | null>(null);
 
-const ListProvider: any = (props: any) => {
+export function ContextProvider(props: any) {
   const [list, setList] = useState([
     {
       id: 1,
@@ -59,11 +59,12 @@ const ListProvider: any = (props: any) => {
       color: "#ff00a9",
     },
   ]);
-  return (
-    <ListContext.Provider value={[list, setList]}>
-      {props.children}
-    </ListContext.Provider>
-  );
-};
 
-export default ListProvider;
+  const dataContext = { list, setList };
+
+  return (
+    <Context.Provider value={dataContext}>{props.children}</Context.Provider>
+  );
+}
+
+export default Context;
