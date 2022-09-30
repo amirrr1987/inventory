@@ -35,7 +35,7 @@ const TheAdd = () => {
     setLink(event.target.value);
   };
 
-  const [color, setColor] = useState("");
+  const [color, setColor] = useState('');
   const colorHandler = (event: any) => {
     setColor(event.target.value);
   };
@@ -104,6 +104,7 @@ const TheAdd = () => {
                   value={color}
                   onInput={colorHandler}
                   type="color"
+                  
                 />
               </div>
               <div>

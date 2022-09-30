@@ -22,7 +22,6 @@ const TheNavbar = () => {
             <NavItem to="/">home</NavItem>
             <NavItem to="/list">list</NavItem>
             <NavItem to="/add">add</NavItem>
-            <NavItem to="/contact">contact</NavItem>
           </ul>
           <div className="flex items-center gap-x-4">
             <Auth openModal={openModal} />
