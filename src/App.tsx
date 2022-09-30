@@ -7,7 +7,6 @@ import ListContext from "./context/ListContext";
 
 function App() {
   return (
-    <ListContext.Provider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<TheAdmin />}>
@@ -17,7 +16,6 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </ListContext.Provider>
   );
 }
 
