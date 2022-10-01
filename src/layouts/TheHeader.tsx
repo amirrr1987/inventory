@@ -5,8 +5,8 @@ import TheNavbar from "../components/TheNavbar";
 const TheHeader = () => {
   return (
     <Fragment>
-      <TheNavbar />
       <header>
+      <TheNavbar />
         <Slider />
       </header>
     </Fragment>

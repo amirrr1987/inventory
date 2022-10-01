@@ -9,7 +9,7 @@ const Modal = (props: any) => {
         className="fixed w-196 h-96 m-auto inset-0 bg-white rounded p-4 z-50 duration-300 shadow-lg border grid grid-rows-[max-content,1fr,max-content]"
         style={{ transform: props.visibility ? "scale(1)" : "scale(0)" }}
       >
-        <div>
+        <div className="">
           <Button type="icon" circle color="red" onClick={props.closeModal}>
             <Icon icon="icon-park-outline:close" />
           </Button>

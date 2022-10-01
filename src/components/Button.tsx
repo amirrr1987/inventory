@@ -2,7 +2,7 @@ const Button = (props: any) => {
   if (props.type === "icon") {
     return (
       <button
-        className={`w-6 h-6 flex items-center justify-center  bg-${
+        className={`w-6 h-6 flex items-center justify-center bg-${
           props.color
         }-500 ${props.color ? "text-white" : null}
                   ${props.circle ? "rounded-full" : "rounded"}

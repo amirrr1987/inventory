@@ -23,17 +23,19 @@ const TheNavbar = () => {
     <nav className="bg-blue-500 py-4 border-b drawer z-40">
       <Container>
         <div className="flex justify-between items-center">
-          <img
-            className="rounded-full w-10 h-10"
-            src="https://picsum.photos/id/567/35/35"
-            alt=""
-          />
-          <ul className="flex gap-x-4 hidden">
-            <NavItem to="/">home</NavItem>
-            <NavItem to="/list">list</NavItem>
-            <NavItem to="/add">add</NavItem>
-          </ul>
-          <div className="flex items-center gap-x-4 hidden">
+          <div className="flex items-center gap-x-12">
+            <img
+              className="rounded-full w-10 h-10"
+              src="https://picsum.photos/id/567/35/35"
+              alt=""
+            />
+            <ul className="lg:gap-x-4 hidden lg:flex">
+              <NavItem to="/">home</NavItem>
+              <NavItem to="/list">list</NavItem>
+              <NavItem to="/add">add</NavItem>
+            </ul>
+          </div>
+          <div className="lg:flex lg:items-center lg:gap-x-4 hidden">
             <Auth openModal={openModal} />
             <Modal
               visibility={visibility}
@@ -43,8 +45,6 @@ const TheNavbar = () => {
                   <div>
                     <Button>Send</Button>
                   </div>
-                  <div></div>
-                  <div></div>
                 </div>
               }
             >
