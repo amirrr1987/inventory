@@ -18,16 +18,13 @@ const TheList = () => {
   };
   return (
     <main>
-      {/* <ListProvider> */}
-        <section className="p-12">
+        <section className="py-12">
           <Container>
-            <div></div>
-            <div className="grid grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               <Cards list={list} deleteHandler={deleteHandler} />
             </div>
           </Container>
         </section>
-      {/* </ListProvider> */}
     </main>
   );
 };

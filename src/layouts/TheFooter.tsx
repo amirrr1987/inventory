@@ -5,7 +5,7 @@ const TheFooter = () => {
     <footer className="text-white">
       <div className="bg-blue-700 py-12">
         <Container>
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid lg:grid-cols-3 gap-y-4 lg:gap-y-0 lg:gap-x-4">
             <div>
               <h4 className="text-xl capitalize font-medium">title</h4>
               <p className="leading-7">

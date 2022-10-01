@@ -26,8 +26,8 @@ const TheAdd = () => {
     <main>
       <section className="py-12">
         <Container>
-          <div className="grid grid-cols-3">
-            <div className="col-start-2 bg-light-50 border p-4">
+          <div className="grid lg:grid-cols-3">
+            <div className="lg:col-start-2 bg-light-50 border p-4">
               <InputItem
                 label="img"
                 value={temp.img}

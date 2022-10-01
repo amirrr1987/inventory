@@ -7,7 +7,7 @@ const TheAdmin = () => {
   return (
     <Fragment>
       <TheHeader />
-      <TheMain />
+      <TheMain /> 
       <TheFooter />
     </Fragment>
   );
