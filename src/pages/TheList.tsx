@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
 import Cards from "../components/Cards";
 import Container from "../components/container";
-import ListContext from "../context/ListContext";
+import ListContext from "../contexts/ListContext";
 
 
 const TheList = () => {

@@ -1,8 +1,10 @@
 import { useState, createContext } from "react";
 
-const Context = createContext<any | null>(null);
+const ListContext = createContext<any | null>(null);
 
-export function ContextProvider(props: any) {
+
+
+export function ListContextProvider(props: any) {
   const [list, setList] = useState([
     {
       id: 1,
@@ -63,8 +65,11 @@ export function ContextProvider(props: any) {
   const dataContext = { list, setList };
 
   return (
-    <Context.Provider value={dataContext}>{props.children}</Context.Provider>
+    <ListContext.Provider value={dataContext}>
+      {props.children}
+    </ListContext.Provider>
   );
 }
 
-export default Context;
+
+export default ListContext;

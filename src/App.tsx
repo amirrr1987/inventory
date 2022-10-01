@@ -3,11 +3,11 @@ import TheAdmin from "./views/TheAdmin";
 import TheHome from "./pages/TheHome";
 import TheList from "./pages/TheList";
 import TheAdd from "./pages/TheAdd";
-import { ContextProvider } from "./context/ListContext";
+import { ListContextProvider } from "./contexts/ListContext";
 
 function App() {
   return (
-    <ContextProvider>
+    <ListContextProvider>
       <Router>
         <Routes>
           <Route path="/" element={<TheAdmin />}>
@@ -17,7 +17,7 @@ function App() {
           </Route>
         </Routes>
       </Router>
-    </ContextProvider>
+    </ListContextProvider>
   );
 }
 
