@@ -3,6 +3,7 @@ import TheAdmin from "./views/TheAdmin";
 import TheHome from "./pages/TheHome";
 import TheList from "./pages/TheList";
 import TheAdd from "./pages/TheAdd";
+import TheEdit from "./pages/TheEdit";
 import { ListContextProvider } from "./contexts/ListContext";
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
             <Route path="/" element={<TheHome />} />
             <Route path="/list" element={<TheList />} />
             <Route path="/add" element={<TheAdd />} />
+            <Route path="/list/:id" element={<TheEdit />} />
           </Route>
         </Routes>
       </Router>

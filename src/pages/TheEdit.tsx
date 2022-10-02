@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import Button from "../components/Button";
 import Container from "../components/Container";
 import InputItem from "../components/InputItem";
 import ListContext from "../contexts/ListContext";
-
-const TheAdd = () => {
+const TheEdit = () => {
   let obj = {
     img: "",
     title: "",
@@ -14,12 +14,33 @@ const TheAdd = () => {
   };
 
   const [temp, setTemp] = useState(obj);
+  const params = useParams();
+  let id: string | number;
 
   const { list, setList } = useContext(ListContext);
 
-  const addToListHandler = () => {
-    setList([...list, temp]);
-    setTemp(obj);
+  const getId = () => {
+    return list.findIndex((item: any) => {
+      if (String(item.id) == String(params.id)) {
+        return item.id;
+      }
+    });
+  };
+
+  useEffect(() => {
+    id = getId();
+    setTemp(list[id]);
+  }, []);
+
+  const EditItemHandler = () => {
+    list.map((item: any) => {
+      if (item.id == params.id) {
+        Object.assign(item, temp);
+        return true;
+      }
+    });
+
+    // setList([...list]);
   };
 
   return (
@@ -68,7 +89,7 @@ const TheAdd = () => {
                 }
               />
               <div>
-                <Button onClick={addToListHandler}>Add</Button>
+                <Button onClick={EditItemHandler}>Add</Button>
               </div>
             </div>
           </div>
@@ -77,4 +98,4 @@ const TheAdd = () => {
     </main>
   );
 };
-export default TheAdd;
+export default TheEdit;

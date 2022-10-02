@@ -1,14 +1,14 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const NavItem = (props: any) => {
   return (
     <li>
-      <Link
+      <NavLink
         className="text-blue-50 no-underline capitalize text-lg"
         to={props.to}
       >
         {props.children}
-      </Link>
+      </NavLink>
     </li>
   );
 };

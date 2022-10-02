@@ -1,9 +1,8 @@
 import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 import Button from "./Button";
 
 const Card = (props: any) => {
-
-
   return (
     <div className="relative bg-light-500 rounded overflow-hidden">
       <Button
@@ -15,6 +14,17 @@ const Card = (props: any) => {
       >
         <Icon icon="icon-park-outline:close" />
       </Button>
+      <Link to={"/list/" + props.id}>
+        <Button
+          type="icon"
+          color="green"
+          circle
+          className="absolute right-2 top-2"
+          onClick={props.deleteHandler}
+        >
+          <Icon icon="icon-park-outline:edit" />
+        </Button>
+      </Link>
       <img className="w-full" src={props.img} alt="" />
       <div className="p-4">
         <h4

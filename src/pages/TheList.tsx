@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import Cards from "../components/Cards";
-import Container from "../components/container";
+import Container from "../components/Container";
 import ListContext from "../contexts/ListContext";
 
 

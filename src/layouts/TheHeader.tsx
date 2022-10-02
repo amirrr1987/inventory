@@ -6,7 +6,7 @@ const TheHeader = () => {
   return (
     <Fragment>
       <header>
-      <TheNavbar />
+        <TheNavbar />
         <Slider />
       </header>
     </Fragment>

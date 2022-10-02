@@ -17,7 +17,7 @@ const Button = (props: any) => {
   if (props.type === "text") {
     return (
       <button
-        className={`w-24 h-8 bg-${props.color}-500 ${props.className}`}
+        className={`min-w-24 h-8 bg-${props.color}-500 ${props.className}`}
         onClick={props.onClick}
       >
         {props.children}

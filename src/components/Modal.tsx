@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
 import { Fragment } from "react";
+import Backdrawer from "./Backdrawer";
 import Button from "./Button";
 
 const Modal = (props: any) => {
@@ -17,11 +18,7 @@ const Modal = (props: any) => {
         <div className="p-4">{props.children}</div>
         <div>{props.footer}</div>
       </div>
-      <div
-        className="fixed w-screen h-screen inset-0 cursor-pointer bg-gray-700/[.7] z-40"
-        style={{ transform: props.visibility ? "scale(1)" : "scale(0)" }}
-        onClick={props.closeModal}
-      ></div>
+      <Backdrawer visibility={props.visibility} closeModal={props.closeModal} />
     </Fragment>
   );
 };
