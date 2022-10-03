@@ -6,6 +6,7 @@ import ListContext from "../contexts/ListContext";
 
 const TheAdd = () => {
   let obj = {
+    id: 0,
     img: "",
     title: "",
     caption: "",
@@ -17,7 +18,10 @@ const TheAdd = () => {
 
   const { list, setList } = useContext(ListContext);
 
+  let lastId = list[list.length - 1].id + 1;
+
   const addToListHandler = () => {
+    temp.id = lastId;
     setList([...list, temp]);
     setTemp(obj);
   };
