@@ -17,7 +17,7 @@ const InputItem = (props: any) => {
         <textarea
           value={props.value}
           onInput={props.handler}
-          rows={10}
+          rows={5}
           className="w-full border p-2 focus:outline-light-800"
         />
       )}

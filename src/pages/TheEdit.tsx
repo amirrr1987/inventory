@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Route, useParams } from "react-router-dom";
 import Button from "../components/Button";
 import Container from "../components/Container";
 import InputItem from "../components/InputItem";
@@ -14,41 +14,28 @@ const TheEdit = () => {
   };
 
   const [temp, setTemp] = useState(obj);
-  const params = useParams();
-  let id: string | number;
 
-  const { list, setList } = useContext(ListContext);
+  const { list, setList, getOne } = useContext(ListContext);
 
-  const getId = () => {
-    return list.findIndex((item: any) => {
-      if (String(item.id) == String(params.id)) {
-        return item.id;
-      }
-    });
+  let { id } = useParams();
+
+  const setterItem = () => {
+    const one = getOne(id);
+    setTemp(one);
   };
 
   useEffect(() => {
-    id = getId();
-    setTemp(list[id]);
+    setterItem();
   }, []);
 
-  const EditItemHandler = () => {
-    list.map((item: any) => {
-      if (item.id == params.id) {
-        Object.assign(item, temp);
-        return true;
-      }
-    });
-
-    // setList([...list]);
-  };
+  const EditItemHandler = () => {};
 
   return (
     <main>
       <section className="py-12">
         <Container>
-          <div className="grid lg:grid-cols-3">
-            <div className="lg:col-start-2 bg-light-50 border p-4">
+          <div className="grid xl:grid-cols-[1fr,2fr,1fr]">
+            <div className="xl:col-start-2 bg-light-50 border p-4">
               <InputItem
                 label="img"
                 value={temp.img}

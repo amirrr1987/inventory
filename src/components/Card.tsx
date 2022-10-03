@@ -25,7 +25,7 @@ const Card = (props: any) => {
           <Icon icon="icon-park-outline:edit" />
         </Button>
       </Link>
-      <img className="w-full" src={props.img} alt="" />
+      <img className="w-full object-cover" src={props.img} alt="" />
       <div className="p-4">
         <h4
           className="text-lg font-medium capitalize"

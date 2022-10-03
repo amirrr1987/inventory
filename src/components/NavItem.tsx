@@ -4,8 +4,17 @@ const NavItem = (props: any) => {
   return (
     <li>
       <NavLink
-        className="text-blue-50 no-underline capitalize text-lg"
+        className={({ isActive }) =>
+          isActive
+            ? "text-dark-500 no-underline capitalize text-lg"
+            : "text-blue-50 no-underline capitalize text-lg"
+        }
         to={props.to}
+        // style={({ isActive }) => {
+        //   return {
+        //     color: isActive ? "red" : "",
+        //   };
+        // }}
       >
         {props.children}
       </NavLink>

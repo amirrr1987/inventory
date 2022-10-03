@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { Outlet } from "react-router-dom";
 import Cards from "../components/Cards";
 import Container from "../components/Container";
 import ListContext from "../contexts/ListContext";
@@ -24,7 +25,7 @@ const TheList = () => {
               <Cards list={list} deleteHandler={deleteHandler} />
             </div>
           </Container>
-        </section>
+      </section>
     </main>
   );
 };

@@ -2,8 +2,6 @@ import { useState, createContext } from "react";
 
 const ListContext = createContext<any | null>(null);
 
-
-
 export function ListContextProvider(props: any) {
   const [list, setList] = useState([
     {
@@ -62,7 +60,14 @@ export function ListContextProvider(props: any) {
     },
   ]);
 
-  const dataContext = { list, setList };
+  const getOne = (id: any) => {
+    let index = list.findIndex((item) => {
+      return String(item.id) === String(id);
+    });
+    return list[index];
+  };
+
+  const dataContext = { list, setList, getOne };
 
   return (
     <ListContext.Provider value={dataContext}>
@@ -70,6 +75,5 @@ export function ListContextProvider(props: any) {
     </ListContext.Provider>
   );
 }
-
 
 export default ListContext;
