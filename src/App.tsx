@@ -6,6 +6,7 @@ import TheAdd from "./pages/TheAdd";
 import TheEdit from "./pages/TheEdit";
 import { ListContextProvider } from "./contexts/ListContext";
 import TheNotFound from "./pages/TheNotFound";
+import TheSingle from "./pages/TheSingle";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
           <Route path="/" element={<TheAdmin />}>
             <Route path="/" element={<TheHome />} />
             <Route path="/list" element={<TheList />} />
-            <Route path="/list/:id" element={<TheEdit />} />
+            <Route path="/list/edit/:id" element={<TheEdit />} />
+            <Route path="/list/single/:id" element={<TheSingle />} />
             <Route path="/add" element={<TheAdd />} />
             <Route path="*" element={<TheNotFound />} />
           </Route>

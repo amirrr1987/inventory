@@ -10,7 +10,7 @@ const Cards = (props: any) => {
         caption={item.caption}
         link={item.link}
         color={item.color}
-        deleteHandler={(event:any) => props.deleteHandler(event,item.id)}
+        deleteHandler={(event: any) => props.deleteHandler(event, item.id)}
         key={index}
       />
     );

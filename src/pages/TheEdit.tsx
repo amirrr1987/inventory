@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { Route, useParams } from "react-router-dom";
+import { Route, Router, useParams } from "react-router-dom";
 import Button from "../components/Button";
 import Container from "../components/Container";
 import InputItem from "../components/InputItem";
@@ -15,7 +15,7 @@ const TheEdit = () => {
 
   const [temp, setTemp] = useState(obj);
 
-  const { list, setList, getOne } = useContext(ListContext);
+  const { list, setList, getOne, updateOne } = useContext(ListContext);
 
   let { id } = useParams();
 
@@ -28,7 +28,10 @@ const TheEdit = () => {
     setterItem();
   }, []);
 
-  const EditItemHandler = () => {};
+  const EditItemHandler = () => {
+    updateOne(id, temp);
+    Route;
+  };
 
   return (
     <main>
@@ -56,7 +59,10 @@ const TheEdit = () => {
                 label="caption"
                 value={temp.caption}
                 handler={(event: any) =>
-                  setTemp({ ...temp, caption: event.target.value })
+                  setTemp({
+                    ...temp,
+                    caption: event.target.value,
+                  })
                 }
               />
               <InputItem
@@ -76,7 +82,7 @@ const TheEdit = () => {
                 }
               />
               <div>
-                <Button onClick={EditItemHandler}>Add</Button>
+                <Button onClick={EditItemHandler}>Edit</Button>
               </div>
             </div>
           </div>

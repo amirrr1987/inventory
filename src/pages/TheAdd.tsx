@@ -3,6 +3,7 @@ import Button from "../components/Button";
 import Container from "../components/Container";
 import InputItem from "../components/InputItem";
 import ListContext from "../contexts/ListContext";
+import { ContainerModel } from "../models";
 
 const TheAdd = () => {
   let obj = {
@@ -14,7 +15,7 @@ const TheAdd = () => {
     color: "",
   };
 
-  const [temp, setTemp] = useState(obj);
+  const [temp, setTemp] = useState<ContainerModel>(obj);
 
   const { list, setList } = useContext(ListContext);
 

@@ -66,8 +66,14 @@ export function ListContextProvider(props: any) {
     });
     return list[index];
   };
+  const updateOne = (id: number, obj: any) => {
+    const index = list.findIndex((item) => {
+      return item.id == id;
+    });
+    Object.assign(list[index], obj);
+  };
 
-  const dataContext = { list, setList, getOne };
+  const dataContext = { list, setList, getOne, updateOne };
 
   return (
     <ListContext.Provider value={dataContext}>
