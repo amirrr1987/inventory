@@ -1,4 +1,5 @@
-import { useContext, useState } from "react";
+import { Fragment, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import Container from "../components/Container";
 import InputItem from "../components/InputItem";
@@ -21,14 +22,16 @@ const TheAdd = () => {
 
   let lastId = list[list.length - 1].id + 1;
 
+  const navigate = useNavigate();
   const addToListHandler = () => {
     temp.id = lastId;
     setList([...list, temp]);
     setTemp(obj);
+    navigate("/list");
   };
 
   return (
-    <main>
+    <Fragment>
       <section className="py-12">
         <Container>
           <div className="grid lg:grid-cols-3">
@@ -79,7 +82,7 @@ const TheAdd = () => {
           </div>
         </Container>
       </section>
-    </main>
+    </Fragment>
   );
 };
 export default TheAdd;

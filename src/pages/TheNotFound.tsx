@@ -1,12 +1,13 @@
+import { Fragment } from "react";
 import Container from "../components/Container";
 
 const TheNotFound = () => {
     return (
-      <main>
+      <Fragment>
         <section className="py-12">
           <Container>TheNotFound</Container>
         </section>
-      </main>
+      </Fragment>
     );
 }
 export default TheNotFound;

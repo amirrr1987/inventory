@@ -1,46 +1,33 @@
-import { useContext, useEffect, useState } from "react";
+import { Fragment, useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Container from "../components/Container";
 import ListContext from "../contexts/ListContext";
-import { ContainerModel } from "../models";
+
 
 const TheSingle = () => {
   const { id } = useParams();
-
-  const { getOne } = useContext(ListContext);
-  let obj = {
-    id: 0,
-    img: "",
-    title: "",
-    caption: "",
-    link: "",
-    color: "",
-  };
-  const [item, setItem] = useState<ContainerModel>(obj);
+  const { getProduct, product } = useContext(ListContext);
   useEffect(() => {
-    //   const temp = ;
-
-    setItem(getOne(id));
-    //   console.log(item);
+    getProduct(id)
   }, []);
   return (
-    <main>
+    <Fragment>
       <section className="py-12">
         <Container>
-          <div
-            className="grid grid-cols-2"
-            style={{ backgroundColor: item.color }}
-          >
-            <img className="w-full h-full object-cover" src={item.img} alt="" />
+          <div className="grid grid-cols-2">
+            <img
+              className="w-full h-96 object-cover rounded-xl"
+              src={product.image}
+              alt=""
+            />
             <div className="p-4">
-              <div>{item.id}</div>
-              <div>{item.title}</div>
-              <div>{item.caption}</div>
+              <div className="text-2xl capitalize">{product.title}</div>
+              <div className="">{product.price}</div>
             </div>
           </div>
         </Container>
       </section>
-    </main>
+    </Fragment>
   );
 };
 

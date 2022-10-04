@@ -1,32 +1,24 @@
-import { createContext, useContext, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Fragment, useContext, useEffect } from "react";
 import Cards from "../components/Cards";
 import Container from "../components/Container";
 import ListContext from "../contexts/ListContext";
 
-
 const TheList = () => {
-  
-  const { list, setList } = useContext(ListContext);
-
-  const deleteHandler = (event: any, id: any) => {
-    let useList = list;
-    let index = useList.findIndex((item:any) => {
-      return item.id === id;
-    });
-    useList.splice(index, 1);
-    setList([...useList]);
-  };
+  const { products, getProducts } = useContext(ListContext);
+  useEffect(() => {
+    getProducts();
+  });
+  const deleteHandler = (event: any, id: any) => {};
   return (
-    <main>
-        <section className="py-12">
-          <Container>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <Cards list={list} deleteHandler={deleteHandler} />
-            </div>
-          </Container>
+    <Fragment>
+      <section className="py-12">
+        <Container>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Cards list={products} deleteHandler={deleteHandler} />
+          </div>
+        </Container>
       </section>
-    </main>
+    </Fragment>
   );
 };
 export default TheList;

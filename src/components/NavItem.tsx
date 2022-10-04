@@ -6,7 +6,7 @@ const NavItem = (props: any) => {
       <NavLink
         className={({ isActive }) =>
           isActive
-            ? "text-dark-500 no-underline capitalize text-lg"
+            ? "text-red-500 no-underline capitalize text-lg"
             : "text-blue-50 no-underline capitalize text-lg"
         }
         to={props.to}

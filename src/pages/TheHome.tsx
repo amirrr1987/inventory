@@ -1,7 +1,8 @@
+import { Fragment } from "react";
 import Container from "../components/Container";
 const TheHome = () => {
   return (
-    <main>
+    <Fragment>
       <section className="py-12">
         <Container>
           <div className="grid grid-cols-3 gap-4">
@@ -102,7 +103,7 @@ const TheHome = () => {
           </div>
         </Container>
       </section>
-    </main>
+    </Fragment>
   );
 };
 export default TheHome;

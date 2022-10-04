@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import { Route, Router, useParams } from "react-router-dom";
+import { Fragment, useContext, useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import Button from "../components/Button";
 import Container from "../components/Container";
 import InputItem from "../components/InputItem";
@@ -27,14 +27,14 @@ const TheEdit = () => {
   useEffect(() => {
     setterItem();
   }, []);
-
+  const navigate = useNavigate();
   const EditItemHandler = () => {
     updateOne(id, temp);
-    Route;
+    navigate("/list");
   };
 
   return (
-    <main>
+    <Fragment>
       <section className="py-12">
         <Container>
           <div className="grid xl:grid-cols-[1fr,2fr,1fr]">
@@ -88,7 +88,7 @@ const TheEdit = () => {
           </div>
         </Container>
       </section>
-    </main>
+    </Fragment>
   );
 };
 export default TheEdit;
