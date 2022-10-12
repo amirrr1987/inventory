@@ -7,7 +7,7 @@ const TheList = () => {
   const { products, getProducts } = useContext(ListContext);
   useEffect(() => {
     getProducts();
-  });
+  },[]);
   const deleteHandler = (event: any, id: any) => {};
   return (
     <Fragment>

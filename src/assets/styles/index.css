@@ -1,5 +1,15 @@
-#root{
+#root {
   display: grid;
   grid-template-rows: max-content 1fr max-content;
   min-height: 100vh;
+}
+
+.category-card:hover .category-card__body {
+  transform: translateY(0%);
+}
+
+.category-card__body {
+  transition-duration: 0.4s;
+  cursor: pointer;
+  transform: translateY(100%);
 }

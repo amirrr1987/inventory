@@ -1,5 +1,6 @@
 import { Icon } from "@iconify/react";
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import ListContext from "../contexts/ListContext";
 import Auth from "./Auth";
 import Button from "./Button";
 import Container from "./Container";
@@ -8,7 +9,14 @@ import Logo from "./Logo";
 import NavItem from "./NavItem";
 import SearchBtn from "./SearchBtn";
 import "./TheNavbar.css";
+
 const TheNavbar = () => {
+  const { userCart, getUserCart } = useContext(ListContext);
+  useEffect(() => {
+    getUserCart(1);
+    // console.log(userCart[0].products);
+    
+  }, []);
   return (
     <nav className="bg-blue-500 py-4 border-b drawer z-40">
       <Container>
@@ -25,6 +33,7 @@ const TheNavbar = () => {
           <DrawerMenu />
 
           <div className="lg:flex lg:items-center lg:gap-x-4 hidden">
+            <div></div>
             <Auth />
             <SearchBtn />
           </div>

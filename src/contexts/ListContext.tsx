@@ -1,5 +1,10 @@
 import { useState, createContext, useEffect } from "react";
-import { GetProductApi, GetProductsApi } from "../services";
+import {
+  GetCategoriesApi,
+  GetProductApi,
+  GetProductsApi,
+  GetUserCartApi,
+} from "../services";
 
 const ListContext = createContext<any | null>(null);
 
@@ -60,14 +65,8 @@ export function ListContextProvider(props: any) {
       color: "#ff00a9",
     },
   ]);
-  const [comments, setComments] = useState<any>([]);
-  const [posts, setPosts] = useState<any>([]);
-  const [photos, setPhotos] = useState<any>([]);
-  const [users, setUsers] = useState<any>([]);
 
   const [products, setProducts] = useState<any>([]);
-  const [product, setProduct] = useState<any>({});
-
   const getProducts = async () => {
     try {
       const { data }: any = await GetProductsApi();
@@ -76,6 +75,8 @@ export function ListContextProvider(props: any) {
       console.log(error);
     }
   };
+
+  const [product, setProduct] = useState<any>({});
   const getProduct = async (id: string) => {
     try {
       const { data } = await GetProductApi(id);
@@ -85,80 +86,44 @@ export function ListContextProvider(props: any) {
     }
   };
 
-  const getComments = async () => {
+  const [userCart, setUserCart] = useState<any>({});
+  const getUserCart = async (id: string) => {
     try {
-      const data: any = await fetch(
-        "https://jsonplaceholder.typicode.com/comments"
-      );
-      let res: any = await data.json();
-      setComments(res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  const getPosts = async () => {
-    try {
-      const data: any = await fetch(
-        "https://jsonplaceholder.typicode.com/posts"
-      );
-      let res: any = await data.json();
-      setPosts(res);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  const getPhotos = async () => {
-    try {
-      const data: any = await fetch(
-        "https://jsonplaceholder.typicode.com/photos"
-      );
-      let res: any = await data.json();
-      setPhotos(res);
+      const { data } = await GetUserCartApi(id);
+      setUserCart(data);
     } catch (error) {
       console.log(error);
     }
   };
 
-  useEffect(() => {
-    // getProducts();
-    // getComments();
-    // getPhotos();
-    // getPosts();
-  });
+  const [categories, setCategories] = useState<any>([]);
 
-  const getOne = (id: any) => {
-    let index = list.findIndex((item) => {
-      return String(item.id) === String(id);
-    });
-    return list[index];
-  };
-  const updateOne = (id: number, obj: any) => {
-    const index = list.findIndex((item) => {
-      return item.id == id;
-    });
-    Object.assign(list[index], obj);
+  const getCategories = async () => {
+    try {
+      const { data } = await GetCategoriesApi();
+      setCategories(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const getWords = (content: string, count: number) => {
     let txt = content;
     txt = txt.substring(1, count);
     let index = txt.lastIndexOf(" ");
-    return txt.substring(1, index);
+    return txt.substring(1, index) + '...';
   };
 
   const dataContext = {
-    list,
-    setList,
-    getOne,
-    updateOne,
-    getWords,
-    users,
-    setUsers,
-    products,
-    setProducts,
+    categories,
+    getCategories,
     getProducts,
+    products,
     getProduct,
     product,
+    userCart,
+    getUserCart,
+    getWords,
   };
 
   return (

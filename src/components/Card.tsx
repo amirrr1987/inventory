@@ -12,7 +12,7 @@ const Card = (props: any) => {
 
   useEffect(() => {
     // setCaption(getWords(props.caption, 200));
-    console.log(props);
+    // console.log(props);
   }, []);
 
   return (
@@ -60,7 +60,7 @@ const Card = (props: any) => {
           </div>
         </div>
         <NavLink
-          to={`single/${item.id}`}
+          to={`/${item.category}/${item.id}`}
           className="bg-cyan-500 text-cyan-50 capitalize w-20 h-8 flex items-center justify-center rounded"
         >
           more
