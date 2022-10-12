@@ -25,3 +25,9 @@ export async function GetCategoriesApi() {
 export async function GetUserCartApi(id: string) {
   return await axios.get(`/carts/user/${id}`);
 }
+
+export async function GetTokenApi(user: object) {
+  console.log(user);
+  
+  return await axios.post("/auth/login", user);
+}

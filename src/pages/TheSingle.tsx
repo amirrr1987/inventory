@@ -28,6 +28,9 @@ const TheSingle = () => {
               <div className="text-base mb-4">{product.description}</div>
               <div className="">Price: {product.price}</div>
               <div className="">Category: {product.category}</div>
+              <div className="py-8">
+                <button className="bg-green-400 w-40 h-8 rounded capitalize">add</button>
+              </div>
             </div>
           </div>
         </Container>

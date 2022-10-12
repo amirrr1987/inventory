@@ -1,15 +1,26 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import ListContext from "../contexts/ListContext";
 import Button from "./Button";
 import Modal from "./Modal";
 
 const Auth = () => {
   const [visibility, setVisibility] = useState(false);
+  const { getToken, token } = useContext(ListContext);
   const openModal = () => {
     setVisibility(true);
   };
   const closeModal = () => {
     setVisibility(false);
   };
+  const [user, setUser] = useState({ username: "", password: "" });
+  const submitHandler = async () => {
+    try {
+      await getToken(user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <Button
@@ -25,7 +36,7 @@ const Auth = () => {
         footer={
           <div className="flex justify-between">
             <div>
-              <Button>Send</Button>
+              <Button onClick={submitHandler}>Send</Button>
             </div>
           </div>
         }
@@ -36,17 +47,25 @@ const Auth = () => {
           </label>
           <input
             type="text"
+            name="name"
             className="border border-gray-300 focus:outline-gray-400 w-full p-1"
+            onInput={(event: any) =>
+              setUser({ ...user, username: event.target.value })
+            }
           />
         </div>
 
         <div>
-          <label htmlFor="name" className="capitalize mb-1 block">
-            name:
+          <label htmlFor="password" className="capitalize mb-1 block">
+            password:
           </label>
           <input
-            type="text"
+            name="password"
+            type="password"
             className="border border-gray-300 focus:outline-gray-400 w-full p-1"
+            onInput={(event: any) =>
+              setUser({ ...user, password: event.target.value })
+            }
           />
         </div>
       </Modal>

@@ -3,6 +3,7 @@ import {
   GetCategoriesApi,
   GetProductApi,
   GetProductsApi,
+  GetTokenApi,
   GetUserCartApi,
 } from "../services";
 
@@ -107,11 +108,18 @@ export function ListContextProvider(props: any) {
     }
   };
 
+  const getToken = async (user: object) => {
+    try {
+      const { data } = await GetTokenApi(user);
+      localStorage.setItem("token", data.token);
+    } catch (error) {}
+  };
+
   const getWords = (content: string, count: number) => {
     let txt = content;
     txt = txt.substring(1, count);
     let index = txt.lastIndexOf(" ");
-    return txt.substring(1, index) + '...';
+    return txt.substring(1, index) + "...";
   };
 
   const dataContext = {
@@ -124,6 +132,7 @@ export function ListContextProvider(props: any) {
     userCart,
     getUserCart,
     getWords,
+    getToken,
   };
 
   return (
