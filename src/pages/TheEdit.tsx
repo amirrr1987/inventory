@@ -27,6 +27,8 @@ const TheEdit = () => {
   useEffect(() => {
     setterItem();
   }, []);
+
+
   const navigate = useNavigate();
   const EditItemHandler = () => {
     updateOne(id, temp);
@@ -49,8 +51,8 @@ const TheEdit = () => {
               />
               <InputItem
                 label="title"
-                value={temp.title}
                 type="text"
+                value={temp.title}
                 handler={(event: any) =>
                   setTemp({ ...temp, title: event.target.value })
                 }
